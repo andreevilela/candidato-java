@@ -11,7 +11,7 @@ public class Programa {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		int escolaridade, experiencia;
+		int escolaridade, experiencia, ptsEscolaridade, ptsExperiencia;
 		char dispViajar, habilitacao;
 		
 		System.out.println("Qual sua escolaridade?");
@@ -28,6 +28,29 @@ public class Programa {
 		dispViajar = sc.next().charAt(0);
 		System.out.println("Você tem habilitação de motorista? (S/N)");
 		habilitacao = sc.next().charAt(0);
+		
+		if (escolaridade == 1) {
+			ptsEscolaridade = 10;
+		} else if (escolaridade == 2) {
+			ptsEscolaridade = 20;
+		} else if (escolaridade == 3) {
+			ptsEscolaridade = 30;
+		} else {
+			ptsEscolaridade = 40;
+		}
+		
+		if (experiencia <= 0) {
+			ptsExperiencia = 0;
+		} else if (experiencia > 0 && experiencia <= 2) {
+			ptsExperiencia = 10;
+		} else if (experiencia > 2 && experiencia <= 5) {
+			ptsExperiencia = 20;
+		} else {
+			ptsExperiencia = 40;
+		}
+		
+		System.out.println("Pontos por escolaridade: " + ptsEscolaridade);
+		System.out.println("Pontos por experiência: " + ptsExperiencia);
 		
 		sc.close();
 
