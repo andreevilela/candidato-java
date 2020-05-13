@@ -13,6 +13,7 @@ public class Programa {
 		
 		int escolaridade, experiencia, ptsEscolaridade, ptsExperiencia;
 		char dispViajar, habilitacao;
+		String msg, cargo;
 		
 		System.out.println("Qual sua escolaridade?");
 		System.out.println("1) Ensino Fundamental");
@@ -47,12 +48,27 @@ public class Programa {
 			ptsExperiencia = 20;
 		} else {
 			ptsExperiencia = 40;
+		} 
+		
+		if (experiencia > 5 && (dispViajar =='S' || dispViajar == 's') && escolaridade >= 3) {
+			msg = "Você está habilitado para o(s) seguinte(s) cargo(s): ";
+			cargo = "GERENTE\nANALISTA";
+		} else if (experiencia > 2 && escolaridade >= 3) {
+			msg = "Você está habilitado para o(s) seguinte(s) cargo(s): ";
+			cargo = "GERENTE";
+		} else if (escolaridade >= 2 && (habilitacao == 'S' || habilitacao == 's')) {
+			msg = "Você está habilitado para o(s) seguinte(s) cargo(s): ";
+			cargo = "ASSISTENTE";
+		} else {
+			msg = "Infelizmente seu perfil não atende a empresa";
+			cargo = "";
 		}
 		
 		System.out.println("Pontos por escolaridade: " + ptsEscolaridade);
 		System.out.println("Pontos por experiência: " + ptsExperiencia);
-		
-		sc.close();
+		System.out.println();
+		System.out.println(msg);
+		System.out.println(cargo);
 
 	}
 
